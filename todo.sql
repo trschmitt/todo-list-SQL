@@ -1,6 +1,3 @@
--- TODO write SELECT statement to find all todos with a priority above 1
--- TODO write an UPDATE statement to complete one todo by its id
--- TODO write a DELETE statement to delete all completed todos.
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
@@ -13,11 +10,11 @@ CREATE TABLE todos (
 
 
 INSERT INTO todos(title, details, priority, created_at, completed_at) VALUES
-    ('Finish homework', 'Complete todays homework before heading home', 1, NOW(), null),
-    ('Catch up on Notes', 'catch up n notes from the backend portion of class', 3, NOW(), null),
-    ('Watch Game of Thrones', null, 2, NOW(), null)
-    ('Practice Code', 'do all of the things', 3 , NOW(), NOW()),
-    ('Go for a walk', null, 4, NOW(), null);
+    ('Finish homework', 'Complete todays homework before heading home', 1, now(), null),
+    ('Catch up on Notes', 'catch up n notes from the backend portion of class', 3, now(), null),
+    ('Watch Game of Thrones', null, 2, now(), null)
+    ('Practice Code', 'do all of the things', 3 , now(), now()),
+    ('Go for a walk', null, 4, now(), null);
 
 --Select all that are completed.
 SELECT * FROM todos WHERE completed_at IS NOT NULL;
@@ -26,5 +23,8 @@ SELECT * FROM todos WHERE completed_at IS NOT NULL;
 SELECT * FROM todos where priority > 1;
 
 --Update a todo to completed
-UPDATE todos SET completed_at = NOW()
+UPDATE todos SET completed_at = now()
   WHERE id = 5;
+
+-- delete all completed todos
+DELETE FROM todos WHERE completed_at IS NOT NULL;
