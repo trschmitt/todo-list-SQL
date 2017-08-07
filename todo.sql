@@ -12,7 +12,7 @@ CREATE TABLE todos (
 INSERT INTO todos(title, details, priority, created_at, completed_at) VALUES
     ('Finish homework', 'Complete todays homework before heading home', 1, now(), null),
     ('Catch up on Notes', 'catch up n notes from the backend portion of class', 3, now(), null),
-    ('Watch Game of Thrones', null, 2, now(), null)
+    ('Watch Game of Thrones', null, 2, now(), null),
     ('Practice Code', 'do all of the things', 3 , now(), now()),
     ('Go for a walk', null, 4, now(), null);
 
