@@ -17,7 +17,7 @@ INSERT INTO todos(title, details, priority, created_at, completed_at) VALUES
     ('Go for a walk', null, 4, now(), null);
 
 --Select all that are completed.
-SELECT * FROM todos WHERE completed_at IS NULL;
+SELECT * FROM todos WHERE completed_at IS NOT NULL;
 
 --Select all that have a priority above 1
 SELECT * FROM todos where priority > 1;
