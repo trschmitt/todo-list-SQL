@@ -35,19 +35,23 @@ INSERT INTO todos(title, details, priority, created_at, completed_at) VALUES
 SELECT * FROM todos WHERE completed_at IS NULL AND priority = 3;
 
 --Statement to find the number of incomplete todos by priority
-SELECT COUNT(completed_at IS NULL)
+SELECT priority, COUNT(*)
 FROM todos
-GROUP BY priority;
+WHERE completed_at IS NULL
+GROUP BY priority
+ORDER BY priority;
 
 --Statement to find the number of todos by priority created in the last 30 days.
-SELECT COUNT(*)
+SELECT priority, COUNT(*)
 FROM todos
 WHERE created_at > now()::date - 30
-GROUP BY priority;
+GROUP BY priority
+ORDER BY priority;
 
 -- Statement to find the next todo you should work on. This is the todo with the highest priority that was created first.
 
 SELECT title, details, priority, created_at
 FROM todos
-WHERE priority = 1
-AND created_at >= now()::date;
+WHERE completed_at IS NULL
+ORDER BY priority, created_at
+LIMIT 1;
